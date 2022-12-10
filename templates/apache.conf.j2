@@ -1,0 +1,15 @@
+
+<VirtualHost *:80>
+    DocumentRoot {{ apache_root_document }}/wordpress
+    <Directory {{ apache_root_document }}/wordpress>
+        Options FollowSymLinks
+        AllowOverride Limit Options FileInfo
+        DirectoryIndex index.php
+        Require all granted
+    </Directory>
+    <Directory {{ apache_root_document }}/wordpress/wp-content>
+        Options FollowSymLinks
+        Require all granted
+    </Directory>
+</VirtualHost>
+

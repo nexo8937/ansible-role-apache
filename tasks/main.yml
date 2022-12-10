@@ -6,6 +6,14 @@
     state: latest
   become: yes
 
+
+- name: upload apache config file
+  template:
+     src: apache.conf.j2
+     dest: "{{ apache_conf_file }}"
+  become: yes
+
+
 - name: restart apache
   service:
      name: apache2
